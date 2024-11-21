@@ -1,17 +1,14 @@
 version: 0.2
 phases:
   install:
+    runtime-version:
+      python: 3.8
     commands:
-      - echo Installing Node.js and dependencies
-      - curl -sL https://deb.nodesource.com/setup_16.x | bash -  # Node.js 16.x 설정 (버전에 따라 변경 가능)
-      - apt-get update
-      - apt-get install -y nodejs
-      - npm init -y
-      - npm install
+      - pip install --upgrade pip
   build:
     commands:
-      - echo Building the application
-      - npm run build
+      - pip install -r requirements.txt -t
+      - zip -r function.zip .
 artifacts:
   files:
-    - '**/*'
+    - function.zip
