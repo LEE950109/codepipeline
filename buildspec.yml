@@ -2,7 +2,10 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing dependencies
+      - echo Installing Node.js and dependencies
+      - curl -sL https://deb.nodesource.com/setup_16.x | bash -  # Node.js 16.x 설정 (버전에 따라 변경 가능)
+      - apt-get update
+      - apt-get install -y nodejs
       - npm install
   build:
     commands:
